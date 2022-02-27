@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_codigo4_state/models/superhero_model.dart';
 import 'package:flutter_codigo4_state/pages/register_page.dart';
+import 'package:flutter_codigo4_state/services/superheroe_service.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -23,51 +25,79 @@ class HomePage extends StatelessWidget {
         backgroundColor: Colors.deepPurpleAccent,
         child: const Icon(Icons.add),
       ),
-      body: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.all(12.0),
-          child: Column(
-            children: [
-              Text(
-                "Información general",
-                style: TextStyle(
-                  fontSize: 24.0,
-                  fontWeight: FontWeight.bold,
-                ),
+      body: StreamBuilder(
+        stream: SuperheroeService().superheroeStream,
+        builder: (BuildContext context, AsyncSnapshot snap) {
+          if (snap.hasData) {
+            Superheroe superheroe = snap.data;
+            return InfoSuperheroeWidget(
+              superheroe: superheroe,
+            );
+          }
+          return const Center(
+            child: CircularProgressIndicator(),
+          );
+        },
+      ),
+    );
+  }
+}
+
+class InfoSuperheroeWidget extends StatelessWidget {
+
+  Superheroe superheroe;
+
+  InfoSuperheroeWidget({
+    required this.superheroe,
+});
+
+  @override
+  Widget build(BuildContext context) {
+    return SingleChildScrollView(
+      child: Padding(
+        padding: const EdgeInsets.all(12.0),
+        child: Column(
+          children: [
+            Text(
+              "Información general",
+              style: TextStyle(
+                fontSize: 24.0,
+                fontWeight: FontWeight.bold,
               ),
-              Divider(),
-              ListTile(
-                title: Text("Nombre: "),
+            ),
+            Divider(),
+            ListTile(
+              title: Text("Nombre: ${superheroe.name}"),
+            ),
+            ListTile(
+              title: Text("Años de experiencia: ${superheroe.experience} años"),
+            ),
+            Divider(),
+            Text(
+              "Poderes",
+              style: TextStyle(
+                fontSize: 20.0,
               ),
-              ListTile(
-                title: Text("Años de experiencia: "),
-              ),
-              Divider(),
-              Text(
-                "Poderes",
-                style: TextStyle(
-                  fontSize: 20.0,
-                ),
-              ),
-              ListTile(
-                title: Text("Poder 1"),
-              ),
-              ListTile(
-                title: Text("Poder 2"),
-              ),
-              ListTile(
-                title: Text("Poder 3"),
-              ),
-              ListTile(
-                title: Text("Poder 4"),
-              ),
-              ListTile(
-                title: Text("Poder 5"),
-              ),
-            ],
-          ),
+            ),
+            ListTile(
+              title: Text("Poder 1"),
+            ),
+            ListTile(
+              title: Text("Poder 2"),
+            ),
+            ListTile(
+              title: Text("Poder 3"),
+            ),
+            ListTile(
+              title: Text("Poder 4"),
+            ),
+            ListTile(
+              title: Text("Poder 5"),
+            ),
+          ],
         ),
       ),
     );
   }
 }
+

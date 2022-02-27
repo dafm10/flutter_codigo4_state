@@ -3,9 +3,9 @@ import 'dart:async';
 
 import 'package:flutter_codigo4_state/models/superhero_model.dart';
 
-class _SuperheroeService{
+class SuperheroeService{
 
-  /*// Aplicamos Singleton modo 1
+  // Aplicamos Singleton modo 1
   SuperheroeService._();
 
   static final SuperheroeService _instance = SuperheroeService._();
@@ -13,7 +13,7 @@ class _SuperheroeService{
   factory SuperheroeService(){
     return _instance;
   }
-  // fin singleton modo 1*/
+  // fin singleton modo 1
 
   Superheroe? _superheroe;
 
@@ -25,6 +25,7 @@ class _SuperheroeService{
 
   createSuperheroe(Superheroe superheroe){
     _superheroe = superheroe;
+    print(superheroe);
     _superheroeStream.add(_superheroe!);
   }
 
@@ -34,4 +35,5 @@ class _SuperheroeService{
 }
 
 // modo 2 de crear singleton, primero ponemos la clase en privado
-final superheroeService = _SuperheroeService();
+/*
+final superheroeService = _SuperheroeService();*/
