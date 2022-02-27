@@ -44,12 +44,11 @@ class HomePage extends StatelessWidget {
 }
 
 class InfoSuperheroeWidget extends StatelessWidget {
-
   Superheroe superheroe;
 
   InfoSuperheroeWidget({
     required this.superheroe,
-});
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -72,27 +71,17 @@ class InfoSuperheroeWidget extends StatelessWidget {
             ListTile(
               title: Text("Años de experiencia: ${superheroe.experience} años"),
             ),
-            Divider(),
-            Text(
+            const Divider(),
+            const Text(
               "Poderes",
               style: TextStyle(
                 fontSize: 20.0,
               ),
             ),
-            ListTile(
-              title: Text("Poder 1"),
-            ),
-            ListTile(
-              title: Text("Poder 2"),
-            ),
-            ListTile(
-              title: Text("Poder 3"),
-            ),
-            ListTile(
-              title: Text("Poder 4"),
-            ),
-            ListTile(
-              title: Text("Poder 5"),
+            ...superheroe.powers.map(
+              (e) => ListTile(
+                title: Text(e),
+              ),
             ),
           ],
         ),
@@ -100,4 +89,3 @@ class InfoSuperheroeWidget extends StatelessWidget {
     );
   }
 }
-
