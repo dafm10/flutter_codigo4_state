@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_codigo4_state/cubit/calculator/calculator_bloc.dart';
 
 class CounterPage extends StatelessWidget {
   const CounterPage({Key? key}) : super(key: key);
@@ -31,7 +33,13 @@ class CounterPage extends StatelessWidget {
                     color: Colors.white,
                   ),
                 ),
-                onPressed: () {},
+                onPressed: () {
+                  BlocProvider.of<CalculatorBloc>(context).add(
+                    AddNumber1(
+                      number1: 1,
+                    ),
+                  );
+                },
               ),
             ],
           ),
