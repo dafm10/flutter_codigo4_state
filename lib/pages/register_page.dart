@@ -20,7 +20,7 @@ class RegisterPage extends StatelessWidget {
             MaterialButton(
               onPressed: () {
                 Superheroe superheroe = Superheroe(
-                  name: "Barman",
+                  name: "Batman",
                   experience: 2,
                   powers: [
                     "Es rico",
@@ -37,7 +37,9 @@ class RegisterPage extends StatelessWidget {
               color: Colors.deepPurpleAccent,
             ),
             MaterialButton(
-              onPressed: () {},
+              onPressed: () {
+                context.read<SuperheroeCubit>().updateExperience(1000);
+              },
               child: const Text(
                 "Actualizar la experiancia",
                 style: TextStyle(
