@@ -35,6 +35,11 @@ class SuperheroeService{
     _superheroeStream.add(_superheroe!);
   }
 
+  addPower(){
+    _superheroe!.powers.add("Power ${_superheroe!.powers.length + 1}");
+    _superheroeStream.add(_superheroe!);
+  }
+
   closeStream(){
     _superheroeStream.close();
   }
