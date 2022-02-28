@@ -19,6 +19,10 @@ class SuperheroProvider with ChangeNotifier {
     _superheroe!.experience = experience;
     notifyListeners();
   }
+  addPower(){
+    _superheroe!.powers.add("Power");
+    notifyListeners();
+  }
 
   deleteSuperhero(){
     _superheroe = null;
