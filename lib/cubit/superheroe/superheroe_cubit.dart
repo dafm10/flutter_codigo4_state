@@ -6,12 +6,15 @@ part 'superheroe_state.dart';
 
 class SuperheroeCubit extends Cubit<SuperheroeState> {
 
-  SuperheroeCubit(initialState) : super(initialState);
+  SuperheroeCubit() : super(SuperheroeInit());
 
   // Implementar nuestros métodos
 
 
   // Crear superheroe
+  void createSuperheroe(Superheroe superheroe){
+    emit(SuperheroeCreate(superheroe: superheroe));
+  }
 
   // Actualizar superheroe
 
