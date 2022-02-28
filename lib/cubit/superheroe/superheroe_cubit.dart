@@ -1,36 +1,45 @@
-
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_codigo4_state/models/superhero_model.dart';
 import 'package:meta/meta.dart';
+
 part 'superheroe_state.dart';
 
 class SuperheroeCubit extends Cubit<SuperheroeState> {
-
   SuperheroeCubit() : super(SuperheroeInit());
 
   // Implementar nuestros métodos
 
-
   // Crear superheroe
-  void createSuperheroe(Superheroe superheroe){
+  void createSuperheroe(Superheroe superheroe) {
     //print(state);
     emit(SuperheroeCreate(superheroe: superheroe));
   }
 
   // Actualizar superheroe
-  void updateExperience(int experience){
+  void updateExperience(int experience) {
     final currentState = state;
 
-    if(currentState is SuperheroeCreate){
-      currentState.superheroe.experience = experience;
-      emit(SuperheroeCreate(superheroe: currentState.superheroe));
-    }
+    if (currentState is SuperheroeCreate) {
+      // currentState.superheroe.experience = experience;
+      // emit(SuperheroeCreate(superheroe: currentState.superheroe));
 
+      final Superheroe newSuperheroe = currentState.superheroe.copyWith(
+        newExperience: 1000,
+      );
+      // print(currentState.superheroe.experience);
+      emit(SuperheroeCreate(superheroe: newSuperheroe));
+    }
   }
 
-  // Eliminar superheroe
+// Agregar poderes
 
+  void addPower(){
+    final currentState = state;
+    if(currentState is SuperheroeCreate){
+      List<String> _newPowers = currentState.superheroe.powers;
+    }
+  }
 
-  // Agregar poderes
+// Eliminar superheroe
 
 }
