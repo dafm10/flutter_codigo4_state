@@ -12,8 +12,8 @@ class RegisterPage extends StatelessWidget {
         backgroundColor: Colors.deepPurpleAccent,
         title: StreamBuilder(
           stream: SuperheroeService().superheroeStream,
-          builder: (BuildContext context, AsyncSnapshot snap){
-            if(snap.hasData){
+          builder: (BuildContext context, AsyncSnapshot snap) {
+            if (snap.hasData) {
               Superheroe superheroe = snap.data;
               return Text("Registrar ::: ${superheroe.name}");
             }
@@ -30,7 +30,11 @@ class RegisterPage extends StatelessWidget {
                 Superheroe batman = Superheroe(
                   name: "Barman",
                   experience: 20,
-                  powers: ["Inteligenicia", "Artes Marciales", "Millonario"],
+                  powers: [
+                    "Inteligenicia",
+                    "Artes Marciales",
+                    "Millonario",
+                  ],
                 );
                 //superheroeService.createSuperheroe(batman);
                 SuperheroeService().createSuperheroe(batman);
@@ -44,7 +48,9 @@ class RegisterPage extends StatelessWidget {
               color: Colors.deepPurpleAccent,
             ),
             MaterialButton(
-              onPressed: () {},
+              onPressed: () {
+                SuperheroeService().updateExperience(100);
+              },
               child: const Text(
                 "Actualizar la experiancia",
                 style: TextStyle(

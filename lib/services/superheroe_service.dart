@@ -1,5 +1,6 @@
 
 import 'dart:async';
+import 'dart:math';
 
 import 'package:flutter_codigo4_state/models/superhero_model.dart';
 
@@ -26,6 +27,11 @@ class SuperheroeService{
   createSuperheroe(Superheroe superheroe){
     _superheroe = superheroe;
     print(superheroe);
+    _superheroeStream.add(_superheroe!);
+  }
+
+  updateExperience(int experience){
+    _superheroe!.experience = experience;
     _superheroeStream.add(_superheroe!);
   }
 
