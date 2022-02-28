@@ -1,6 +1,8 @@
 
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_codigo4_state/cubit/superheroe/superheroe_state.dart';
+import 'package:flutter_codigo4_state/models/superhero_model.dart';
+import 'package:meta/meta.dart';
+part 'superheroe_state.dart';
 
 class SuperheroeCubit extends Cubit<SuperheroeState> {
 

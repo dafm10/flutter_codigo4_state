@@ -1,7 +1,8 @@
-// abstract => indica que la clase no puede ser instanciada directamente
-import 'package:flutter/material.dart';
-import 'package:flutter_codigo4_state/models/superhero_model.dart';
 
+// con esto decimos que este archivo es parte de superheroe_cubit
+part of 'superheroe_cubit.dart';
+
+// abstract => indica que la clase no puede ser instanciada directamente
 // immutable indica que no va a cambiar, estará visible desde el cubit
 @immutable
 abstract class SuperheroeState {}
