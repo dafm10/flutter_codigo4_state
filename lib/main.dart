@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_codigo4_state/pages/counter_page.dart';
 import 'package:flutter_codigo4_state/pages/home_page.dart';
 
 void main() {
@@ -15,7 +16,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const HomePage(),
+      home: const CounterPage(),
     );
   }
 }
