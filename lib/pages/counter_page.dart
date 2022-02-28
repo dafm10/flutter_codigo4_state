@@ -1,8 +1,27 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_codigo4_state/services/counter_service.dart';
 
-class CounterPage extends StatelessWidget {
+class CounterPage extends StatefulWidget {
   const CounterPage({Key? key}) : super(key: key);
+
+  @override
+  State<CounterPage> createState() => _CounterPageState();
+}
+
+class _CounterPageState extends State<CounterPage> {
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    // TODO: implement dispose
+    super.dispose();
+    counterService.closeStream();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -18,8 +37,9 @@ class CounterPage extends StatelessWidget {
               stream: counterService.counterStream,
               builder: (BuildContext context, AsyncSnapshot snap){
                 if(snap.hasData){
+                  int counter = snap.data;
                   return Text(
-                    snap.data.toString(),
+                    counter.toString(),
                     style: const TextStyle(
                       fontSize: 40.0,
                       color: Colors.black54,
