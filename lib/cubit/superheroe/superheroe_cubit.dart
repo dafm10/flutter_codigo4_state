@@ -13,6 +13,7 @@ class SuperheroeCubit extends Cubit<SuperheroeState> {
 
   // Crear superheroe
   void createSuperheroe(Superheroe superheroe){
+    //print(state);
     emit(SuperheroeCreate(superheroe: superheroe));
   }
 
