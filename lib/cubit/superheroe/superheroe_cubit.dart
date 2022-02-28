@@ -45,4 +45,8 @@ class SuperheroeCubit extends Cubit<SuperheroeState> {
 
 // Eliminar superheroe
 
+  void deleteSuperheroe(){
+    emit(SuperheroeInit());
+  }
+
 }
