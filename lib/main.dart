@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(
-          create: (BuildContext context) => SuperheroeProvider(),
+          create: (BuildContext context) => SuperheroProvider(),
         ),
       ],
       child: MaterialApp(
