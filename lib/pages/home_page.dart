@@ -15,7 +15,7 @@ class HomePage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.deepPurpleAccent,
-        title: Text("Superhero"),
+        title: const Text("Superhero"),
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
@@ -33,7 +33,7 @@ class HomePage extends StatelessWidget {
           ? InfoSuperheroWidget(
               superheroe: superheroProvider.superheroe,
             )
-          : Center(
+          : const Center(
               child: Text("No hay un superheroe registrado"),
             ),
     );
@@ -54,7 +54,7 @@ class InfoSuperheroWidget extends StatelessWidget {
         padding: const EdgeInsets.all(12.0),
         child: Column(
           children: [
-            Text(
+            const Text(
               "Información general",
               style: TextStyle(
                 fontSize: 24.0,

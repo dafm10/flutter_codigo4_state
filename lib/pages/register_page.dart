@@ -9,7 +9,8 @@ class RegisterPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // Aqui estamos a la escucha de lo que ocurre
-    final SuperheroProvider _superheroProvider = Provider.of<SuperheroProvider>(context);
+    final SuperheroProvider _superheroProvider =
+        Provider.of<SuperheroProvider>(context);
 
     return Scaffold(
       appBar: AppBar(
@@ -25,7 +26,12 @@ class RegisterPage extends StatelessWidget {
                 Superheroe superman = Superheroe(
                   name: "Superman",
                   experience: 3,
-                  powers: ["Super fuerza", "Visión láser", "Volar", "Visión X"],
+                  powers: [
+                    "Super fuerza",
+                    "Visión láser",
+                    "Volar",
+                    "Visión X",
+                  ],
                 );
                 _superheroProvider.createSuperhero(superman);
               },
@@ -38,8 +44,10 @@ class RegisterPage extends StatelessWidget {
               color: Colors.deepPurpleAccent,
             ),
             MaterialButton(
-              onPressed: () {},
-              child: Text(
+              onPressed: () {
+                _superheroProvider.updateExperience(1000);
+              },
+              child: const Text(
                 "Actualizar la experiancia",
                 style: TextStyle(
                   color: Colors.white,
@@ -49,8 +57,20 @@ class RegisterPage extends StatelessWidget {
             ),
             MaterialButton(
               onPressed: () {},
-              child: Text(
+              child: const Text(
                 "Añadir poderes",
+                style: TextStyle(
+                  color: Colors.white,
+                ),
+              ),
+              color: Colors.deepPurpleAccent,
+            ),
+            MaterialButton(
+              onPressed: () {
+                _superheroProvider.deleteSuperhero();
+              },
+              child: const Text(
+                "Eliminar",
                 style: TextStyle(
                   color: Colors.white,
                 ),
