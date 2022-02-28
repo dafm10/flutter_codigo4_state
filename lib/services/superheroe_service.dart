@@ -16,8 +16,8 @@ class SuperheroeService{
   // fin singleton modo 1
 
   Superheroe? _superheroe;
-
-  StreamController<Superheroe> _superheroeStream = StreamController();
+  // se añade broadcast para que pueda ser llamado en multiples paginas
+  StreamController<Superheroe> _superheroeStream = StreamController.broadcast();
 
   Stream<Superheroe> get superheroeStream => _superheroeStream.stream;
 
