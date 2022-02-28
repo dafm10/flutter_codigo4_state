@@ -86,21 +86,7 @@ class InfoSuperheroeWidget extends StatelessWidget {
                 fontSize: 20.0,
               ),
             ),
-            ListTile(
-              title: Text("Poder 1"),
-            ),
-            ListTile(
-              title: Text("Poder 2"),
-            ),
-            ListTile(
-              title: Text("Poder 3"),
-            ),
-            ListTile(
-              title: Text("Poder 4"),
-            ),
-            ListTile(
-              title: Text("Poder 5"),
-            ),
+            ...superheroe.powers.map((e) => ListTile(title: Text(e),)).toList(),
           ],
         ),
       ),

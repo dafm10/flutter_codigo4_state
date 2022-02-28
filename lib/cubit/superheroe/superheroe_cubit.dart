@@ -37,6 +37,9 @@ class SuperheroeCubit extends Cubit<SuperheroeState> {
     final currentState = state;
     if(currentState is SuperheroeCreate){
       List<String> _newPowers = currentState.superheroe.powers;
+      _newPowers.add("Power");
+      final Superheroe newSuperheroe = currentState.superheroe.copyWith(newPowers: _newPowers);
+      emit(SuperheroeCreate(superheroe: newSuperheroe));
     }
   }
 
