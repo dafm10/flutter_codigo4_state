@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_codigo4_state/cubit/superheroe/superheroe_bloc.dart';
 
 class RegisterPage extends StatelessWidget {
   const RegisterPage({Key? key}) : super(key: key);
@@ -15,7 +17,11 @@ class RegisterPage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             MaterialButton(
-              onPressed: () {},
+              onPressed: () {
+                BlocProvider.of<SuperheroeBloc>(context).add(
+                  SuperheroeCreateEvent(),
+                );
+              },
               child: Text(
                 "Añadir superheroe",
                 style: TextStyle(
@@ -36,7 +42,7 @@ class RegisterPage extends StatelessWidget {
             ),
             MaterialButton(
               onPressed: () {},
-              child: Text(
+              child: const Text(
                 "Añadir poderes",
                 style: TextStyle(
                   color: Colors.white,

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_codigo4_state/cubit/calculator/calculator_bloc.dart';
+import 'package:flutter_codigo4_state/cubit/superheroe/superheroe_bloc.dart';
 import 'package:flutter_codigo4_state/pages/counter_page.dart';
 import 'package:flutter_codigo4_state/pages/home_page.dart';
 
@@ -15,6 +16,7 @@ class MyApp extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider(create: (_)=>CalculatorBloc()),
+        BlocProvider(create: (_)=>SuperheroeBloc()),
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
@@ -22,7 +24,7 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           primarySwatch: Colors.blue,
         ),
-        home: const CounterPage(),
+        home: const HomePage(),
       ),
     );
   }
