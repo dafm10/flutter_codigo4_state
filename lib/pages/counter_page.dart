@@ -11,81 +11,96 @@ class CounterPage extends StatelessWidget {
       appBar: AppBar(
         title: Text("Example"),
       ),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Row(
+      body: BlocBuilder<CalculatorBloc, CalculatorState>(
+        builder: (context, state){
+          //print(state.number1);
+          return Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    state.number1.toString(),
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 30.0,
+                    ),
+                  ),
+                  const SizedBox(width: 12.0),
+                  MaterialButton(
+                    color: Colors.deepPurpleAccent,
+                    child: const Text(
+                      "add number 1",
+                      style: TextStyle(
+                        color: Colors.white,
+                      ),
+                    ),
+                    onPressed: () {
+                      BlocProvider.of<CalculatorBloc>(context).add(
+                        AddNumber1(
+                          number1: 1,
+                        ),
+                      );
+                    },
+                  ),
+                ],
+              ),
+              const Divider(),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    state.number2.toString(),
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 30.0,
+                    ),
+                  ),
+                  const SizedBox(width: 12.0),
+                  MaterialButton(
+                    color: Colors.deepPurpleAccent,
+                    child: Text(
+                      "add number 2",
+                      style: TextStyle(
+                        color: Colors.white,
+                      ),
+                    ),
+                    onPressed: () {
+                      BlocProvider.of<CalculatorBloc>(context).add(
+                        AddNumber2(
+                          number2: 1,
+                        ),
+                      );
+                    },
+                  ),
+                ],
+              ),
+              const Divider(),
               Text(
-                "0",
+                "Resultado::: ${state.result}",
                 style: TextStyle(
                   fontWeight: FontWeight.bold,
                   fontSize: 30.0,
                 ),
               ),
-              const SizedBox(width: 12.0),
               MaterialButton(
                 color: Colors.deepPurpleAccent,
-                child: Text(
-                  "add number 1",
+                child: const Text(
+                  "Calculate",
                   style: TextStyle(
                     color: Colors.white,
                   ),
                 ),
                 onPressed: () {
                   BlocProvider.of<CalculatorBloc>(context).add(
-                    AddNumber1(
-                      number1: 1,
-                    ),
+                    CalculateResult(),
                   );
                 },
               ),
             ],
-          ),
-          const Divider(),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text(
-                "0",
-                style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 30.0,
-                ),
-              ),
-              const SizedBox(width: 12.0),
-              MaterialButton(
-                color: Colors.deepPurpleAccent,
-                child: Text(
-                  "add number 2",
-                  style: TextStyle(
-                    color: Colors.white,
-                  ),
-                ),
-                onPressed: () {},
-              ),
-            ],
-          ),
-          const Divider(),
-          Text(
-            "Resultado::: 100",
-            style: TextStyle(
-              fontWeight: FontWeight.bold,
-              fontSize: 30.0,
-            ),
-          ),
-          MaterialButton(
-            color: Colors.deepPurpleAccent,
-            child: Text(
-              "Calculate",
-              style: TextStyle(
-                color: Colors.white,
-              ),
-            ),
-            onPressed: () {},
-          ),
-        ],
+          );
+        },
       ),
     );
   }

@@ -13,20 +13,21 @@ class CalculatorBloc extends Bloc<CalculatorEvent, CalculatorState> {
 
     on<AddNumber1>(
       (event, emit) {
-        print("Event: $event");
-        // emit(CalculatorState());
+        //print(state);
+        //print("Event: $event");
+        emit(state.copyWith(number1: state.number1 + 1));
       },
     );
     on<AddNumber2>(
           (event, emit) {
-        print("Event: $event");
-        // emit(CalculatorState());
+        //print("Event: $event");
+            emit(state.copyWith(number2: state.number2 + 1));
       },
     );
     on<CalculateResult>(
           (event, emit) {
-        print("Event: $event");
-        // emit(CalculatorState());
+        //print("Event: $event");
+        emit(state.copyWith(result: state.number1 + state.number2));
       },
     );
     on<Reset>(
