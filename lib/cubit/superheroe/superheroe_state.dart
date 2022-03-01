@@ -1,6 +1,10 @@
 part of 'superheroe_bloc.dart';
 
-@immutable
-abstract class SuperheroeState {}
+class SuperheroeState{
 
-class SuperheroeInitial extends SuperheroeState{}
+  final bool superheroeExist;
+  final Superheroe? superheroe;
+
+  SuperheroeState({this.superheroe}): superheroeExist = superheroe != null;
+
+}
