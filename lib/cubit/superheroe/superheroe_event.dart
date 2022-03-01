@@ -17,4 +17,10 @@ class SuperheroeUpdateExperienceEvent extends SuperheroeEvent {
   });
 }
 
-class SuperheroeAddPowerEvent extends SuperheroeEvent {}
+class SuperheroeAddPowerEvent extends SuperheroeEvent {
+  final String powers;
+
+  SuperheroeAddPowerEvent({
+    required this.powers,
+});
+}
