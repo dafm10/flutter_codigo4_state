@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_codigo4_state/cubit/superheroe/superheroe_bloc.dart';
+import 'package:flutter_codigo4_state/models/superhero_model.dart';
 import 'package:flutter_codigo4_state/pages/register_page.dart';
 
 class HomePage extends StatelessWidget {
@@ -23,14 +26,29 @@ class HomePage extends StatelessWidget {
         backgroundColor: Colors.deepPurpleAccent,
         child: const Icon(Icons.add),
       ),
-      body: InfoSuperheroeWidget(),
+      body: BlocBuilder<SuperheroeBloc, SuperheroeState>(
+        builder: (context, state) {
+          print(state.superheroeExist);
+          if (state.superheroeExist) {
+            return InfoSuperheroeWidget(
+              superheroe: state.superheroe!,
+            );
+          }
+          return Center(
+            child: Text("No hay un superheroe registrado"),
+          );
+        },
+      ),
     );
   }
 }
 
-
 class InfoSuperheroeWidget extends StatelessWidget {
-  const InfoSuperheroeWidget({Key? key}) : super(key: key);
+  Superheroe superheroe;
+
+  InfoSuperheroeWidget({
+    required this.superheroe,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -48,10 +66,10 @@ class InfoSuperheroeWidget extends StatelessWidget {
             ),
             Divider(),
             ListTile(
-              title: Text("Nombre: "),
+              title: Text("Nombre: ${superheroe.name}"),
             ),
             ListTile(
-              title: Text("Años de experiencia: "),
+              title: Text("Años de experiencia: ${superheroe.experience}"),
             ),
             Divider(),
             Text(
@@ -60,21 +78,13 @@ class InfoSuperheroeWidget extends StatelessWidget {
                 fontSize: 20.0,
               ),
             ),
-            ListTile(
-              title: Text("Poder 1"),
-            ),
-            ListTile(
-              title: Text("Poder 2"),
-            ),
-            ListTile(
-              title: Text("Poder 3"),
-            ),
-            ListTile(
-              title: Text("Poder 4"),
-            ),
-            ListTile(
-              title: Text("Poder 5"),
-            ),
+            ...superheroe.powers
+                .map(
+                  (e) => ListTile(
+                    title: Text(e),
+                  ),
+                )
+                .toList(),
           ],
         ),
       ),

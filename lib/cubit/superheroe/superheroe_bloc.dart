@@ -9,9 +9,7 @@ part 'superheroe_state.dart';
 class SuperheroeBloc extends Bloc<SuperheroeEvent, SuperheroeState> {
   SuperheroeBloc() : super(SuperheroeState()) {
     on<SuperheroeCreateEvent>((event, emit) {
-      print(event.superheroe);
       emit(SuperheroeState(superheroe: event.superheroe));
-      // TODO: implement event handler
     });
 
     on<SuperheroeUpdateExperienceEvent>((event, emit) {
