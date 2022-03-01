@@ -31,5 +31,9 @@ class SuperheroeBloc extends Bloc<SuperheroeEvent, SuperheroeState> {
         ),
       );
     });
+
+    on<SuperheroeDeleteEvent>((event, emit) {
+
+    });
   }
 }

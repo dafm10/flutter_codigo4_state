@@ -68,6 +68,20 @@ class RegisterPage extends StatelessWidget {
               ),
               color: Colors.deepPurpleAccent,
             ),
+            MaterialButton(
+              onPressed: () {
+                BlocProvider.of<SuperheroeBloc>(context).add(
+                  SuperheroeDeleteEvent(),
+                );
+              },
+              child: const Text(
+                "Eliminar",
+                style: TextStyle(
+                  color: Colors.white,
+                ),
+              ),
+              color: Colors.deepPurpleAccent,
+            ),
           ],
         ),
       ),

@@ -22,5 +22,7 @@ class SuperheroeAddPowerEvent extends SuperheroeEvent {
 
   SuperheroeAddPowerEvent({
     required this.powers,
-});
+  });
 }
+
+class SuperheroeDeleteEvent extends SuperheroeEvent{}
