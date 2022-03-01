@@ -3,11 +3,18 @@ part of 'superheroe_bloc.dart';
 @immutable
 abstract class SuperheroeEvent {}
 
-class SuperheroeCreateEvent extends SuperheroeEvent{
-  final  Superheroe superheroe;
+class SuperheroeCreateEvent extends SuperheroeEvent {
+  final Superheroe superheroe;
+
   SuperheroeCreateEvent({required this.superheroe});
 }
 
-class SuperheroeUpdateExperienceEvent extends SuperheroeEvent{}
+class SuperheroeUpdateExperienceEvent extends SuperheroeEvent {
+  final int experience;
 
-class SuperheroeAddPowerEvent extends SuperheroeEvent{}
+  SuperheroeUpdateExperienceEvent({
+    required this.experience,
+  });
+}
+
+class SuperheroeAddPowerEvent extends SuperheroeEvent {}

@@ -32,7 +32,7 @@ class RegisterPage extends StatelessWidget {
                   SuperheroeCreateEvent(superheroe: batmanman),
                 );
               },
-              child: Text(
+              child: const Text(
                 "Añadir superheroe",
                 style: TextStyle(
                   color: Colors.white,
@@ -41,8 +41,12 @@ class RegisterPage extends StatelessWidget {
               color: Colors.deepPurpleAccent,
             ),
             MaterialButton(
-              onPressed: () {},
-              child: Text(
+              onPressed: () {
+                BlocProvider.of<SuperheroeBloc>(context).add(
+                  SuperheroeUpdateExperienceEvent(experience: 1000),
+                );
+              },
+              child: const Text(
                 "Actualizar la experiancia",
                 style: TextStyle(
                   color: Colors.white,
