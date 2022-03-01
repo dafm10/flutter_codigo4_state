@@ -32,8 +32,8 @@ class CalculatorBloc extends Bloc<CalculatorEvent, CalculatorState> {
     );
     on<Reset>(
           (event, emit) {
-        print("Event: $event");
-        // emit(CalculatorState());
+        //print("Event: $event");
+        emit(CalculatorState());
       },
     );
   }

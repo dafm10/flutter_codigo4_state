@@ -98,6 +98,21 @@ class CounterPage extends StatelessWidget {
                   );
                 },
               ),
+              const Divider(),
+              MaterialButton(
+                color: Colors.deepPurpleAccent,
+                child: const Text(
+                  "Reset",
+                  style: TextStyle(
+                    color: Colors.white,
+                  ),
+                ),
+                onPressed: () {
+                  BlocProvider.of<CalculatorBloc>(context).add(
+                    Reset(),
+                  );
+                },
+              ),
             ],
           );
         },
